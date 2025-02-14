@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <!-- Meta Informationen -->
+        <meta charset="UTF-8">
+        <meta name="author" content="Daniel Wenzel">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UP - Globale CO₂-Emissionen</title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="bilder/Logo_2_Favicon.jpg" type="image/jpg">
+
+        <!-- Integration Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+
+        <!-- Implementierung der Schriftart "Dancing Script" für h1 -->
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet">
+
+        <!-- Initialisierung CSS -->
+        <style type="text/css">
+        
+        /* ALLGEMEIN */
+
+            /* Allgemeiner Stil */
+            body {
+                background-color: rgb(37, 39, 62);
+                color: white;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Allgemeiner Stil für Verlinkungen */
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            /* Stil der Überschrift h1 */
+            h1 {  
+                background-color: rgb(124, 197, 45); 
+                padding: 0.5em; 
+                color: rgb(37, 39, 62);
+                font-weight: bold;
+            } 
+
+            /* Stil für die Überschrift h2 */
+            h2 {
+                font-size: 150%;
+                font-family: 'Dancing Script', cursive;
+                margin-left: 1.5em;
+                margin-right: 1.5em;
+                padding:1em;
+            }
+
+            /* Inhalt flexibel machen */
+            .inhalt {
+                flex: 1;
+            }
+
+            /* Allgemeiner Stil der Navigation */
+            nav ul {
+                list-style-type: none;
+                margin-left: 1em;
+                margin-right: 1em;
+                padding-left: 1em;
+            }
+
+            /* Allgemeiner Footer Stil */
+            footer {
+                width: 100%;
+                padding: 1em;
+                margin-top: auto;
+                border-top: 1px solid rgb(80, 85, 134);
+            }
+
+        /* HEADER */
+            
+            /* Maximale Logohöhe */
+            .logo {
+                max-height: 160px;
+            }
+
+            /* Maximale Höhe der Social Media Logos */
+            .social-media-logo {
+                max-height: 40px;
+            }
+        
+        /* MENÜ */
+
+            /* Darstellung des Menüs je nach Schriftkultur links (ltr) oder rechts (rtl) */
+            body[dir="ltr"] .inhalt {
+                flex-direction: row;
+            }
+            body[dir="rtl"] .inhalt {
+                flex-direction: row-reverse;
+            }
+
+            /* Spezifischer Stil des seitlichen Menüs */
+            .menue-seite {
+                background-color: rgb(80, 85, 134);
+                font-size: 120%;
+            }
+
+            /* Abstand der Menüpunkte */
+            .menue-seite li {
+                margin-bottom: 0.5em;
+            }
+
+            /* Mobile Ansicht für das Menü */
+            @media (max-width: 767px) {
+                nav ul {
+                    padding: 0;
+                    flex-direction: column;
+                }
+                nav ul li {
+                    padding: 0;
+                }
+
+                /* Spezifischer Stil der Tabelle in der Mobilansicht */
+                table {
+                    width: 100%;
+                    overflow-x: auto;
+                    display: block;
+                }
+            }
+            
+        /* Footer */
+            
+            /*Abstand zwischen den Links*/
+            footer li {
+                margin-right: 2em;
+            }
+        </style> 
+    </head>
+    <body>
+        <!-- Integration jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Initialisierung DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+        
+        <!-- Integration DataTables -->
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        
+        <!-- Header -->
+        <header>
+            <nav>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <!-- Logo und Suche -->
+                    <div class="d-flex align-items-center">
+                        <!-- Logo -->
+                        <a href="index.html">
+                            <img src="bilder/Logo_2.jpg" alt="Logo" class="img-fluid logo">
+                        </a>
+                        <!-- Suche und Speicherung des Suchworts in den query Parameter -->
+                        <form class="me-2" action="suche.html" method="get">
+                            <label for="search-query" class="visually-hidden">Suche:</label>
+                            <input type="text" id="search-query" name="query" placeholder="Suche" class="form-control">
+                        </form>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="d-flex flex-wrap justify-content-center me-2">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="me-2">
+                            <img src="bilder/Instagram.jpg" alt="Instagram-Seite von UP - Unser Planet" class="img-fluid social-media-logo">
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="me-2">
+                            <img src="bilder/Facebook.jpg" alt="Facebook-Seite von UP - Unser Planet" class="img-fluid social-media-logo">
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="me-2">
+                            <img src="bilder/TikTok.jpg" alt="TikTok-Seite von UP - Unser Planet" class="img-fluid social-media-logo">
+                        </a>
+                        <!-- X (ehemals Twitter) -->
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+                            <img src="bilder/X.jpg" alt="X-Seite von UP - Unser Planet" class="img-fluid social-media-logo">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Inhalt -->
+        <div class="inhalt">
+            <div class="row"> 
+                <!-- Seitliches Menü -->
+                <div class="col-lg-2 col-sm-12"> 
+                    <nav>
+                        <ul class="menue-seite"> 
+                            <li><a href="index.html">Startseite</a></li> 
+                            <li><a href="wer_wir_sind.html">Wer wir sind</a></li>
+                            <li><a href="klimawissen_kompakt.html">Klimawissen kompakt</a></li>  
+                            <li><a href="globale_co2_emissionen.html">Globale CO₂-Emissionen</a></li>
+                            <li><a href="nachhaltige_loesungen.html">Nachhaltige Lösungen</a></li>
+                            <li><a href="blog_klimanews.html">Blog / Klimanews</a></li>
+                            <li><a href="forum.html">Forum</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Hauptinhalt -->
+                <div class="col-lg-10 col-sm-12"> 
+                    <section class="me-2 ms-2"> 
+                        <h1>Globale CO₂-Emissionen</h1>
+                        <h2>"Die Fakten auf den Tisch: Wer emittiert wie viel?"</h2>
+                        <h3>Ein Überblick über die CO₂-Verursacher</h3>
+                        <p>Unsere interaktive Tabelle ist das Herzstück dieser Seite. Sie zeigt dir die Daten, die die Welt verändern können.</p>
+                    <!-- Darstellung der Filter -->
+                    <div>
+                        <label>
+                            Unternehmen:
+                            <select id="filter-unternehmen">
+                                <option value="">Alle Unternehmen</option>
+                            </select>
+                        </label>
+                        <label style="margin-left: 20px;">
+                            Land:
+                            <select id="filter-land">
+                                <option value="">Alle Länder</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <!-- Tabelle -->
+                    <table id="co2-tabelle" class="display" style="width: 80%; margin-left: 0;">
+                        <thead>
+                            <tr>
+                            <th>Unternehmen</th>
+                            <th>Land</th>
+                            <th>Stadt</th>
+                            <th>CO₂-Ausstoß (Tonnen/Jahr)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Inhalt der Tabelle bleibt leer, wird über AJAX hinzugefügt -->
+                        </tbody>
+                    </table>
+
+                    <!-- Füllen der Tabelle -->
+                    <script>
+                        $(document).ready(function () {
+                    
+                            /* Daten aus der JSON-Datei laden 
+                                Die JSON-Daten müssen die folgende Struktur haben:
+                                    [
+                                    { "unternehmen": "Unternehmen xy", "land": "Land xy", "stadt": "Stadt xy", "co2_ausstoss": Wert CO2 Ausstoß },
+                                     ]    
+                            */
+                            $.ajax({
+                                url: 'CO2_Daten.json',
+                                dataType: 'json',
+                                success: function (data) {
+                                    /* DataTable mit den Daten initialisieren */
+                                    const table = $('#co2-tabelle').DataTable({
+                                        data: data,
+                                        columns: [
+                                        { data: 'unternehmen', title: 'Unternehmen' },
+                                        { data: 'land', title: 'Land' },
+                                        { data: 'stadt', title: 'Stadt' },
+                                        { data: 'co2_ausstoss', title: 'CO₂-Ausstoß (Tonnen/Jahr)' }
+                                        ],
+                                        /* Ausgewählte Elemente der Tabelle auf auf deutsch einstellen */
+                                        language: {
+                                            search: "Suche: ",
+                                            lengthMenu: "Zeige _MENU_ Einträge",
+                                            info: "Einträge _START_ bis _END_ von _TOTAL_",
+                                            infoEmpty: "Keine Einträge verfügbar",
+                                            infoFiltered: "(gefiltert von _MAX_ Einträgen)",
+                                            zeroRecords: "Keine passenden Einträge gefunden",
+                                            paginate: {
+                                            first: "Erste",
+                                            last: "Letzte",
+                                            next: " Nächste",
+                                            previous: "Vorherige "
+                                            }
+                                        }
+                                    });
+                    
+                                    /* Befüllen des Dropdown-Menüs mit eindeutigen Werten */
+                                    function DropdownBefuellen(columnIndex, dropdownId) {
+                                        const unikate = new Set();
+                    
+                                        /* Werte pro Spalte sammeln */
+                                        table
+                                        .column(columnIndex)
+                                        .data()
+                                        .each(function (value) {
+                                            unikate.add(value.trim());
+                                        });
+                        
+                                        /* Dropdown mit Optionen befüllen */
+                                        const dropdown = $(dropdownId);
+                                        unikate.forEach(function (val) {
+                                            dropdown.append(`<option value="${val}">${val}</option>`);
+                                        });
+                                    }
+                    
+                                    /* Dropdownmenüs mit Werten füllen */
+                                    DropdownBefuellen(0, '#filter-unternehmen');
+                                    DropdownBefuellen(1, '#filter-land');
+                            
+                                    /* Event-Handler Dropdown "Unternehmen" */
+                                    $('#filter-unternehmen').on('change', function () {
+                                        const value = $(this).val();
+                                        table
+                                        .columns(0)
+                                        .search(value)
+                                        .draw();
+                                    });
+                                    
+                                    /* Event-Handler Dropdown "Land" */
+                                    $('#filter-land').on('change', function () {
+                                        const value = $(this).val();
+                                        table
+                                        .columns(1)
+                                        .search(value)
+                                        .draw();
+                                    });
+                                },
+                                /* Fehlerbehandlung bei Fehlern während des Auslesens der JSON Datei */
+                                error: function (xhr, status, error) {
+                                    console.error('Fehler beim Laden der Daten:', error); /*Fehlermeldung für Entwickler*innen auf der Konsole */
+                                    $('#co2-tabelle tbody').html('<tr><td colspan="4">Fehlermeldung: Die Daten konnten leider nicht geladen werden.</td></tr>'); /* Fehlermeldung für Benutzende */
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <nav aria-label="Footer-Navigation"> 
+                <ul class="d-flex justify-content-center"> 
+                    <li><a href="datenschutz.html">Datenschutz</a></li> 
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="agb.html">AGB</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul> 
+            </nav>
+        </footer>
+    </body>
+</html>

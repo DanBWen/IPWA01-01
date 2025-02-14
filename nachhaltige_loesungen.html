@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <!-- Meta Informationen -->
+        <meta charset="UTF-8">
+        <meta name="author" content="Daniel Wenzel">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UP - Nachhaltige Lösungen</title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="bilder/Logo_2_Favicon.jpg" type="image/jpg">
+
+        <!-- Integration Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+
+        <!-- Implementierung der Schriftart "Dancing Script" für h1 -->
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet">
+
+        <!-- Initialisierung CSS -->
+        <style type="text/css">
+        
+        /* ALLGEMEIN */
+
+            /* Allgemeiner Stil */
+            body {
+                background-color: rgb(37, 39, 62);
+                color: white;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Allgemeiner Stil für Verlinkungen */
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            /* Stil der Überschrift h1 */
+            h1 {  
+                background-color: rgb(124, 197, 45); 
+                padding: 0.5em; 
+                color: rgb(37, 39, 62);
+                font-weight: bold;
+            } 
+
+            /* Stil für die Überschrift h2 */
+            h2 {
+                font-size: 150%;
+                font-family: 'Dancing Script', cursive;
+                margin-left: 1.5em;
+                margin-right: 1.5em;
+                padding:1em;
+            }
+
+            /* Inhalt flexibel machen */
+            .inhalt {
+                flex: 1;
+            }
+
+            /* Allgemeiner Stil der Navigation */
+            nav ul {
+                list-style-type: none;
+                margin-left: 1em;
+                margin-right: 1em;
+                padding-left: 1em;
+            }
+
+            /* Allgemeiner Footer Stil */
+            footer {
+                width: 100%;
+                padding: 1em;
+                margin-top: auto;
+                border-top: 1px solid rgb(80, 85, 134);
+            }
+
+        /* HEADER */
+            
+            /* Maximale Logohöhe */
+            .logo {
+                max-height: 160px;
+            }
+
+            /* Maximale Höhe der Social Media Logos */
+            .social-media-logo {
+                max-height: 40px;
+            }
+        
+        /* MENÜ */
+
+            /* Darstellung des Menüs je nach Schriftkultur links (ltr) oder rechts (rtl) */
+            body[dir="ltr"] .inhalt {
+                flex-direction: row;
+            }
+            body[dir="rtl"] .inhalt {
+                flex-direction: row-reverse;
+            }
+
+            /* Spezifischer Stil des seitlichen Menüs */
+            .menue-seite {
+                background-color: rgb(80, 85, 134);
+                font-size: 120%;
+            }
+
+            /* Abstand der Menüpunkte */
+            .menue-seite li {
+                margin-bottom: 0.5em;
+            }
+
+            /* Mobile Ansicht für das Menü */
+            @media (max-width: 767px) {
+                nav ul {
+                    padding: 0;
+                    flex-direction: column;
+                }
+                nav ul li {
+                    padding: 0;
+                }
+            }
+            
+        /* Footer */
+            
+            /*Abstand zwischen den Links*/
+            footer li {
+                margin-right: 2em;
+            }
+        </style> 
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <nav>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <!-- Logo und Suche -->
+                    <div class="d-flex align-items-center">
+                        <!-- Logo -->
+                        <a href="index.html">
+                            <img src="bilder/Logo_2.jpg" alt="Logo" class="img-fluid logo">
+                        </a>
+                        <!-- Suche und Speicherung des Suchworts in den query Parameter -->
+                        <form class="me-2" action="suche.html" method="get">
+                            <label for="search-query" class="visually-hidden">Suche:</label>
+                            <input type="text" id="search-query" name="query" placeholder="Suche" class="form-control">
+                        </form>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="d-flex flex-wrap justify-content-center me-2">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="me-2">
+                            <img src="bilder/Instagram.jpg" alt="Instagram-Seite von UP - Unser Planet" class="img-fluid social-media-logo">
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="me-2">
+                            <img src="bilder/Facebook.jpg" alt="Facebook-Seite von UP - Unser Planet" class="img-fluid social-media-logo">
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="me-2">
+                            <img src="bilder/TikTok.jpg" alt="TikTok-Seite von UP - Unser Planet" class="img-fluid social-media-logo">
+                        </a>
+                        <!-- X (ehemals Twitter) -->
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+                            <img src="bilder/X.jpg" alt="X-Seite von UP - Unser Planet" class="img-fluid social-media-logo">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Inhalt -->
+        <div class="inhalt">
+            <div class="row"> 
+                <!-- Seitliches Menü -->
+                <div class="col-lg-2 col-sm-12"> 
+                    <nav>
+                        <ul class="menue-seite"> 
+                            <li><a href="index.html">Startseite</a></li> 
+                            <li><a href="wer_wir_sind.html">Wer wir sind</a></li>
+                            <li><a href="klimawissen_kompakt.html">Klimawissen kompakt</a></li>  
+                            <li><a href="globale_co2_emissionen.html">Globale CO₂-Emissionen</a></li>
+                            <li><a href="nachhaltige_loesungen.html">Nachhaltige Lösungen</a></li>
+                            <li><a href="blog_klimanews.html">Blog / Klimanews</a></li>
+                            <li><a href="forum.html">Forum</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Hauptinhalt -->
+                <div class="col-lg-10 col-sm-12"> 
+                    <section class="me-2 ms-2"> 
+                        <h1>Nachhaltige Lösungen</h1>
+                        <h2>"Von der Verantwortung zur Handlung: Lösungen für eine nachhaltige Zukunft."</h2>
+                        <h3>Erneuerbare Energien nutzen</h3>
+                        <p>Unternehmen können ihren CO₂-Ausstoß erheblich senken, indem sie auf saubere Energiequellen wie Solar-, Wind- oder Wasserkraft umsteigen. Dies kann durch den direkten Einsatz von Photovoltaikanlagen auf Gebäudedächern, den Bezug von zertifiziertem Ökostrom oder die Investition in eigene erneuerbare Energieprojekte erreicht werden. Zusätzlich senkt dies langfristig Energiekosten und stärkt das nachhaltige Image des Unternehmens.</p><br>
+                        <h3>Effiziente Logistik umsetzen</h3>
+                        <p>Die Optimierung von Lieferketten und Transportwegen kann helfen, CO₂-Emissionen drastisch zu reduzieren. Beispielsweise durch den Einsatz moderner Routenplanungssoftware, die Vermeidung unnötiger Leerfahrten und die Konsolidierung von Lieferungen. Auch der Wechsel zu emissionsarmen Transportmitteln wie Elektro-Lkw oder Gütertransport per Bahn trägt zur Reduktion bei.</p><br>
+                        <h3>Kreislaufwirtschaft fördern</h3>
+                        <p>Indem Unternehmen auf Recycling und die Wiederverwendung von Materialien setzen, können sie nicht nur Abfall, sondern auch die Emissionen in der gesamten Wertschöpfungskette reduzieren. Produkte sollten so gestaltet sein, dass sie am Ende ihrer Lebensdauer einfach zerlegt und recycelt werden können. Gleichzeitig können durch Upcycling oder die Nutzung recycelter Rohstoffe neue Ressourcen geschont werden.</p><br>
+                        <h3>Klimaschutz braucht politische Maßnahmen</h3>
+                        <p>Nachhaltiger Wandel auf breiter Ebene ist nur möglich, wenn die Politik klare Rahmenbedingungen schafft. Unternehmen sind oft auf staatliche Anreize wie Subventionen für erneuerbare Energien oder Investitionen in grüne Infrastruktur angewiesen, um ihre Klimaziele wirtschaftlich erreichen zu können. Strengere gesetzliche Vorgaben, wie verbindliche CO₂-Reduktionsziele, sorgen dafür, dass Klimaschutz zu einem festen Bestandteil des Wirtschaftens wird und gleiche Wettbewerbsbedingungen für alle geschaffen werden.</p><br>
+                        <p><strong>"Nachhaltigkeit beginnt bei dir &#150 und wird durch kollektives Handeln groß."</strong></p><br>
+                       </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <nav aria-label="Footer-Navigation"> 
+                <ul class="d-flex justify-content-center"> 
+                    <li><a href="datenschutz.html">Datenschutz</a></li> 
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="agb.html">AGB</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul> 
+            </nav>
+        </footer>
+    </body>
+</html>
